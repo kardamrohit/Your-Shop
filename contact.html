@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    label,
+    input,
+    textarea,
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="6" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="responseMessage"></div>
+  </div>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      // Here, you can implement your logic to send the form data to a server or email address.
+      // For demonstration purposes, let's just display a success message.
+
+      const successMessage = `Thank you, ${name}! Your message has been sent successfully.`;
+      responseMessage.textContent = successMessage;
+      responseMessage.classList.remove("error-message");
+      responseMessage.classList.add("success-message");
+
+      // Clear the form fields after submission
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
